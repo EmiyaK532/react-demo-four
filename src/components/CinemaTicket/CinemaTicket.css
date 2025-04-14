@@ -1,0 +1,105 @@
+/* 容器样式 */
+.seat-container {
+  max-width: 100%;
+  overflow-x: auto;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+/* 给Canvas添加阴影效果，增强立体感 */
+.canvas-with-shadow {
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.canvas-with-shadow:hover {
+  transform: translateY(-2px);
+}
+
+/* 代码片段样式 */
+.prose code {
+  padding: 0.1em 0.4em;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+/* 自定义滚动条样式 */
+.seat-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.seat-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.seat-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.seat-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 电影院信息面板样式 */
+.cinema-panel {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cinema-panel:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式布局调整 */
+@media (max-width: 768px) {
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .cinema-panel {
+    max-width: 100% !important;
+  }
+}
+
+/* 为座位列表添加漂亮的滚动效果 */
+ul.bg-gray-100 {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* 为按钮添加过渡效果 */
+button {
+  transition: all 0.2s ease;
+}
+
+/* 为技术说明部分添加样式 */
+.prose ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.25rem;
+}
+
+/* 添加一些动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.prose {
+  animation: fadeIn 0.5s ease-in-out;
+}

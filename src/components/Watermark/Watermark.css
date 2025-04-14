@@ -1,0 +1,26 @@
+/* 用于水印容器元素的基本样式 */
+.watermark-container {
+  /* 大部分样式通过 JS 动态设置，这里是备用样式 */
+  pointer-events: none; /* 确保水印不会影响下层元素的交互 */
+  user-select: none; /* 防止选中水印文字 */
+}
+
+/* 滑块样式优化 */
+input[type="range"] {
+  @apply h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  @apply appearance-none w-4 h-4 rounded-full bg-blue-600;
+}
+
+/* 控制区域样式 */
+.prose code {
+  @apply px-1 py-0.5 rounded bg-gray-100 text-sm font-mono;
+}
+
+/* 演示区域内容保持可交互 */
+.relative.z-10 {
+  position: relative;
+  z-index: 10;
+}

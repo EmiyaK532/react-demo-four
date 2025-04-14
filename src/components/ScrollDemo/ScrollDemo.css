@@ -1,0 +1,284 @@
+/* 滚动容器样式 */
+.scroll-container {
+  position: relative;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #edf2f7;
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #edf2f7;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0;
+  border-radius: 6px;
+  border: 3px solid #edf2f7;
+}
+
+/* 顶部进度条 */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  width: 0%;
+  transition: width 0.2s;
+}
+
+/* 视差滚动背景 */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background-position: center;
+  background-size: cover;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+/* 回到顶部按钮 */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: #2563eb;
+  transform: translateY(-3px);
+}
+
+/* 滚动箭头动画 */
+.scroll-arrow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.scroll-arrow span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: scrollArrow 2s infinite;
+}
+
+.scroll-arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.scroll-arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+@keyframes scrollArrow {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+}
+
+/* 内容块入场动画 */
+.content-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.content-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 滚动方向感知导航栏 */
+.demo-navbar {
+  background: #4f46e5;
+  color: white;
+  padding: 1rem;
+  transition: transform 0.3s;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+.navbar-visible {
+  transform: translateY(0);
+}
+
+/* 迷你视差示例 */
+.mini-parallax {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.mini-parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://picsum.photos/id/1019/800/400");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mini-parallax-content {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+/* 图片懒加载示例 */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.lazy-image-container {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.lazy-image-container:hover {
+  transform: translateY(-5px);
+}
+
+.lazy-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.lazy-image-container:hover .lazy-image {
+  transform: scale(1.05);
+}
+
+.image-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* 滚动导航 */
+.scroll-nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.scroll-nav button {
+  padding: 0.5rem 1rem;
+  background: #e5e7eb;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.scroll-nav button:hover {
+  background: #d1d5db;
+}
+
+.scroll-nav button.active {
+  background: #3b82f6;
+  color: white;
+}
